@@ -1,3 +1,3 @@
 # Algorithms 
 
-Visual representation of algorithms , there comparison between other algorithms 
+Visual representation of algorithms ,  comparison between other algorithms 
