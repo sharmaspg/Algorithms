@@ -23,13 +23,13 @@ func Plotter(title string, timegraph []float64, input []int64) {
 	p.Y.Label.Text = "time"
 
 	err := plotutil.AddLinePoints(p,
-		"Sorting", PlotPoints(timegraph, input))
+		"Merge", PlotPoints(timegraph, input))
 	if err != nil {
 		panic(err)
 	}
 
 	// Save the plot to a PNG file.
-	if err := p.Save(4*vg.Inch, 4*vg.Inch, "sorting.png"); err != nil {
+	if err := p.Save(4*vg.Inch, 4*vg.Inch, "merge.png"); err != nil {
 		panic(err)
 	}
 }
