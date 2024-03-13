@@ -58,6 +58,10 @@ func PlotPoints(timegraph []float64, input []int64) plotter.XYs {
 }
 
 func main() {
+	// d := utils.GetArray(10)
+	// r := sorting.MergeSort(d)
+	// fmt.Println(r)
+	// return
 
 	rows := utils.GetInputForGraph()
 	timegraph := []float64{}
@@ -65,12 +69,12 @@ func main() {
 	for _, row := range rows {
 		started := time.Now()
 		inputrow = append(inputrow, int64(len(row)))
-		sorting.Insertion(row)
+		sorting.MergeSort(row)
 		ended := time.Now()
 		duration := ended.Sub(started)
 		timegraph = append(timegraph, duration.Seconds())
 		fmt.Println(duration.Seconds())
 	}
 
-	Plotter("Sorting", timegraph, inputrow)
+	Plotter("MergeSort", timegraph, inputrow)
 }
