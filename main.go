@@ -14,7 +14,7 @@ import (
 	"gonum.org/v1/plot/vg"
 )
 
-func Plotter(title string, timegraph []int64, input []int64) {
+func Plotter(title string, timegraph []float64, input []int64) {
 
 	p := plot.New()
 
@@ -47,11 +47,11 @@ func randomPoints(n int) plotter.XYs {
 	return pts
 }
 
-func PlotPoints(timegraph []int64, input []int64) plotter.XYs {
+func PlotPoints(timegraph []float64, input []int64) plotter.XYs {
 	pts := make(plotter.XYs, len(input))
 	for i := range pts {
 		pts[i].X = float64(input[i])
-		pts[i].Y = float64(timegraph[i])
+		pts[i].Y = timegraph[i]
 		//	pts[i].Y = pts[i].X + 10*rand.Float64()
 	}
 	return pts
@@ -60,7 +60,7 @@ func PlotPoints(timegraph []int64, input []int64) plotter.XYs {
 func main() {
 
 	rows := utils.GetInputForGraph()
-	timegraph := []int64{}
+	timegraph := []float64{}
 	inputrow := []int64{}
 	for _, row := range rows {
 		started := time.Now()
@@ -68,7 +68,7 @@ func main() {
 		sorting.Insertion(row)
 		ended := time.Now()
 		duration := ended.Sub(started)
-		timegraph = append(timegraph, duration.Microseconds())
+		timegraph = append(timegraph, duration.Seconds())
 		fmt.Println(duration.Seconds())
 	}
 
