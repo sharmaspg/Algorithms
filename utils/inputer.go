@@ -13,7 +13,7 @@ func GetArray(size int64) []int64 {
 
 func GetInputForGraph() [][]int64 {
 	result := [][]int64{}
-	for i := 10000; i < 100000; i += 100 {
+	for i := 1000; i < 10000; i += 100 {
 		result = append(result, GetArray(int64(i)))
 	}
 

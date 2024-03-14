@@ -25,6 +25,24 @@ func MergeSort(arr []int64) []int64 {
 	return merge(left, right)
 }
 
+func Selection(A []int64) []int64 {
+	var min_index int
+	var temp int64
+	for i := 0; i < len(A)-1; i++ {
+		min_index = i
+		// Find index of minimum element
+		for j := i + 1; j < len(A); j++ {
+			if A[j] < A[min_index] {
+				min_index = j
+			}
+		}
+		temp = A[i]
+		A[i] = A[min_index]
+		A[min_index] = temp
+	}
+	return A
+}
+
 func merge(left, right []int64) []int64 {
 	result := make([]int64, 0, len(left)+len(right))
 	i, j := 0, 0
